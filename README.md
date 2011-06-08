@@ -57,6 +57,31 @@ there is no more data.
 
 ## Options
 
+### `appendTo`
+
+This is the element to which to append the results from the Ajax call.
+Defaults to `$(this)`.
+
+### `beforeSend`
+
+A pre-request callback function.  Use this to show a status indicator,
+for example.
+
+### `complete`
+
+A function to be called when the request finishes, regardless of the
+return status code.
+
+### `data`
+
+Request data to be sent to the server.  This can be a url-encoded string
+or a Javascript object.
+
+### `resultSelector`
+
+This can be any valid CSS selector that is used to identify an element that wraps
+an individual result.  Defaults to `.result`.
+
 ### `triggerMargin`
 
 This is the number of pixels from the bottom of the scrollable results
@@ -64,13 +89,19 @@ element where the Ajax request will be triggered.  Defaults to 30.  Set
 it higher to make the request farther away from the bottom of the
 results list.
 
-### `resultSelector`
+### `type`
 
-This can be any valid CSS selector that is used to identify an element that wraps
-an individual result.  Defaults to `.result`.
+The type of request to make ("POST" or "GET"), default is "GET".
+
+**Note**: Other HTTP request methods, such as PUT and DELETE, can
+also be used here, but they are not supported by all browsers.
+
+### `url`
+
+This is the url to use in the request.  It can include a query string.
+perpetual-scroll is smart enough to deal with them.  Defaults to
+`window.location.href`.
+
 
 ## TODO
-
-* Update the page with an indicator alerting the user when
-  results are being loaded.
-* Add a message when no more results are available.
+* Add a callback that can be used when no more results are available.
