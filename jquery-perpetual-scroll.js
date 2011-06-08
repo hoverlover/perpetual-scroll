@@ -1,3 +1,10 @@
+/*!
+ * jquery-perpetual-scroll JavaScript Library v0.2.0
+ * https://github.com/hoverlover/perpetual-scroll
+ *
+ * Copyright 2011, Chad Boyd
+ * Licensed under the MIT license.
+ */
 (function($) {
 
   $.fn.perpetualScroll = function (options) {
