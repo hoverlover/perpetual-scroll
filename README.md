@@ -74,7 +74,8 @@ return status code.
 
 ### `data`
 
-Request data to be sent to the server.  This can be a url-encoded string
+This can either be a function or the raw data to be sent to the server.  If
+a function, it must return the data in the form of a url-encoded string
 or a Javascript object.
 
 ### `resultSelector`

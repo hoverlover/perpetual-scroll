@@ -1,5 +1,5 @@
 /*!
- * jquery-perpetual-scroll JavaScript Library v0.2.0
+ * jquery-perpetual-scroll JavaScript Library v0.2.1
  * https://github.com/hoverlover/perpetual-scroll
  *
  * Copyright 2011, Chad Boyd
@@ -50,12 +50,11 @@
               }
             },
             complete: options.complete,
-            data: options.data
+            data: $.isFunction(options.data) ? options.data.call() : options.data
           });
         }
       });
     });
   };
 }) ( jQuery );
-
 
