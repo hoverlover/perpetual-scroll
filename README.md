@@ -130,7 +130,3 @@ also be used here, but they are not supported by all browsers.
 This is the url to use in the request.  It can include a query string.
 perpetual-scroll is smart enough to deal with them.  Defaults to
 `window.location.href`.
-
-
-## TODO
-* Add a callback that can be used when no more results are available.
