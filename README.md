@@ -51,9 +51,29 @@ by counting the number of elements that match the `resultSelector`
 option (defaults to `.result`).  You can then use this parameter in your
 code to offset your results during subsequent loads.
 
-Once there are no more results to be returned, an empty response should
-be returned from the Ajax request.  This will alert the plugin that
-there is no more data.
+## Loading more results from the server
+
+A callback function can be given to perpetual-scroll which determines
+whether or not more results can be retrieved from the server.  The
+`xhr` object is passed to the callback in the event that it needs to be
+used to determine this.
+
+One way to do this could be for the server to return a response header
+indicating whether or not more results can be retrieved.  The callback
+would then query the `xhr` object for this header:
+
+    $('#results-area').perpetualScroll({
+      url: '/search',
+      appendTo: $('#results-area ul'),
+      beforeSend: showSpinner,
+      complete: hideSpinner,
+      moreResultsCheck: function(xhr) {
+
+        // If X-EOR header is set, it means we are at
+        // the end of the results.
+        return xhr.getResponseHeader('X-EOR') == null;
+      }
+    });
 
 ## Options
 
@@ -77,6 +97,14 @@ return status code.
 This can either be a function or the raw data to be sent to the server.  If
 a function, it must return the data in the form of a url-encoded string
 or a Javascript object.
+
+### `moreResultsCheck`
+
+Callback function that will be used to notify perpetual-scroll if more
+results can be retrieved from the server.  This is used by perpetual-scroll
+to determined whether or not to request more results when the scroll bar
+reaches the bottom the next time.  The `xhr` object from the Ajax call
+is passed to this function.  Must return either `true` or `false`.
 
 ### `resultSelector`
 
