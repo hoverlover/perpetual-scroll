@@ -51,7 +51,7 @@
       triggerMargin: 30,
       resultSelector: '.result',
       appendTo: $(this),
-      url: window.location.href,
+      url: window.location.href.split('#')[0],
       type: 'GET'
     }, options);
 
