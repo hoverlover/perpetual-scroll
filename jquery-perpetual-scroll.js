@@ -103,6 +103,7 @@
           $.ajax({
             url: href,
             type: options.type,
+            dataType: 'html',
             beforeSend: options.beforeSend,
             success: function(html, textStatus, xhr) {
               $(options.appendTo).append(html);
